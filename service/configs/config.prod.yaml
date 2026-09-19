@@ -1,0 +1,22 @@
+server:
+  port: 8080
+  mode: release
+
+database:
+  host: postgres
+  port: 5432
+  user: admin
+  password: ${DB_PASSWORD}
+  dbname: rvcs
+
+redis:
+  host: redis
+  port: 6379
+  password: ${REDIS_PASSWORD}
+
+jwt:
+  secret: ${JWT_SECRET}
+
+log:
+  level: info
+  format: json

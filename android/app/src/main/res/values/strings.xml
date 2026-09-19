@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RVCS Device</string>
+    <!-- 部署时替换为你的服务器地址；也可用 BuildConfig / 构建时注入 -->
+    <string name="server_base_url">https://YOUR_SERVER_HOST:28443</string>
+
+    <!-- LiveKit配置（占位符，请替换为你的 LiveKit 服务器地址与自行生成的 key/secret） -->
+    <string name="livekit_server_url">ws://YOUR_SERVER_HOST:7880</string>
+    <string name="livekit_api_key">YOUR_LIVEKIT_API_KEY</string>
+    <string name="livekit_api_secret">YOUR_LIVEKIT_API_SECRET</string>
+
+    <string name="service_name">Camera Service</string>
+    <string name="service_running">Camera service is running</string>
+    <string name="btn_start">Start Service</string>
+    <string name="btn_stop">Stop Service</string>
+</resources>

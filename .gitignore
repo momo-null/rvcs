@@ -1,0 +1,108 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool
+*.out
+
+# Dependency directories
+vendor/
+
+# Go workspace file
+go.work
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Build outputs
+dist/
+build/
+*.tar.gz
+*.zip
+rvcs-*.tar.gz
+rvcs-*.zip
+
+# Node
+node_modules/
+.pnpm-debug.log*
+
+# Web
+web/dist/
+web/node_modules/
+web/.env.local
+
+# Service
+service/build/
+service/*.exe
+service/web/
+service/tmp/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Docker
+.docker/
+
+# Android
+android/.gradle/
+android/gradle/
+android/gradlew
+android/gradlew.bat
+*/build/
+*/.gradle/
+.gradle/
+local.properties
+
+# === Secrets / real credentials (keep local only, never commit) ===
+# TLS certificates & private keys for the backend
+service/certs/
+# Real deployment config (use config.example.yaml as template)
+service/configs/config.yaml
+# Web env files (tracked example is .env.example)
+web/.env.development
+web/.env.production
+
+# Build/cache artifacts that must never be committed
+service/.gocache/
+service/rvcs-server
+*.exe~
+
+# IDE / agent internal data (not part of the open-source project)
+.codebuddy/
+
+# Bundled server certificate (users supply their own for their deployment)
+android/app/src/main/assets/certificates/
+
+# Backup / temp files
+*.bak
+*~

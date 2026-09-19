@@ -1,0 +1,44 @@
+# docker-compose.yaml
+services:
+  livekit:
+    image: livekit/livekit-server:latest
+    container_name: rvcs-livekit
+    command: --config /etc/livekit.yaml
+    restart: unless-stopped
+    network_mode: "host"
+    volumes:
+      - ./livekit.yaml:/etc/livekit.yaml
+      - ./service/certs:/certs
+    environment:
+      # TURN 下发给客户端
+      LIVEKIT_TURN_SERVERS: >
+        '[{"urls":["turn:YOUR_SERVER_IP:3478?transport=udp","turn:YOUR_SERVER_IP:3478?transport=tcp"],
+           "username":"livekit",
+           "credential":"EmeoBbU1mv75J0hO5"}]'
+      # 可�?STUN 下发
+      LIVEKIT_STUN_SERVERS: '["stun:YOUR_SERVER_IP:3478"]'
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+    privileged: true
+
+  coturn:
+    image: instrumentisto/coturn
+    container_name: rvcs-coturn
+    restart: unless-stopped
+    network_mode: "host"
+    volumes:
+      - ./turnserver.conf:/etc/coturn/turnserver.conf
+    cap_add:
+      - NET_ADMIN
+
+  nginx:
+    image: nginx:alpine
+    container_name: rvcs-nginx
+    restart: unless-stopped
+    network_mode: "host"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./service/certs:/etc/nginx/certs:ro

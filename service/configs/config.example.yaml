@@ -1,0 +1,85 @@
+server:
+  http_port: 28080
+  https_port: 28443
+  mode: debug  # debug, release, test
+  read_timeout: 60s
+  write_timeout: 60s
+
+database:
+  # 数据库模式: sqlite-file(默认,持久化), sqlite-memory(内存模式), mysql(MySQL)
+  mode: sqlite-file
+  host: localhost
+  port: 3306
+  user: root
+  password: CHANGE_ME_db_password
+  dbname: rvcs
+  sslmode: disable
+  max_idle_conns: 10
+  max_open_conns: 100
+  conn_max_lifetime: 1h
+  # SQLite文件数据库路径
+  sqlite_data_dir: ./data
+  sqlite_filename: rvcs.db
+
+redis:
+  host: localhost
+  port: 6379
+  password: ""
+  db: 0
+  pool_size: 10
+
+jwt:
+  # 必须使用强随机值，例如: openssl rand -base64 48
+  secret: CHANGE_ME_generate_strong_random_secret
+  access_token_expiry: 2h
+  refresh_token_expiry: 168h  # 7 days
+  # 设备Token有效期（设备长期运行，使用更长的有效期）
+  device_access_token_expiry: 168h  # 7天
+  device_refresh_token_expiry: 720h  # 30天
+
+websocket:
+  read_buffer_size: 1024
+  write_buffer_size: 1024
+  ping_interval: 30s
+  pong_wait: 60s
+  write_wait: 10s
+  max_message_size: 512
+  offline_check_interval: 60s  # 设备离线检测间隔
+  offline_timeout: 90s          # 设备离线超时时间（3个心跳周期）
+
+rate_limit:
+  enabled: true
+  window: 15m
+  max_requests: 100
+
+log:
+  level: info  # debug, info, warn, error
+  format: console  # json, console
+  output: file  # stdout, file
+
+stream:
+  rtsp_port: 28554
+  rtmp_port: 21935
+  hls_port: 28080
+  hls_segment_duration: 2s
+
+livekit:
+  # LiveKit 服务器 URL（通过 Nginx 代理）
+  server_url: "http://localhost:7880"
+  # 对外公开 wss 地址，请替换为你自己的主机
+  public_server_url: "wss://YOUR_SERVER_HOST:6880"
+  # LiveKit API key/secret —— 在你的 LiveKit 服务器上自行生成
+  api_key: "YOUR_LIVEKIT_API_KEY"
+  api_secret: "YOUR_LIVEKIT_API_SECRET"
+  room_name_prefix: "room"
+  token_expiry: 24h
+
+tls:
+  enabled: true
+  # 证书文件位于 service/certs/（已被 gitignore）。自行生成：
+  # openssl req -x509 -newkey rsa:2048 -nodes -keyout certs/server.key -out certs/server.crt -days 365
+  cert_file: certs/server.crt
+  key_file: certs/server.key
+
+registration_code:
+  reusable: false

@@ -1,0 +1,67 @@
+RVCS (Remote Vision & Control System)
+Copyright (c) 2026 momo-null
+
+This product includes third-party software distributed under the licenses
+listed below. The RVCS project itself is licensed under the MIT License
+(see the LICENSE file).
+
+================================================================================
+Go module dependencies (service/go.mod)
+================================================================================
+Direct dependencies:
+- github.com/gin-gonic/gin .................... MIT
+- github.com/glebarez/sqlite ................. MIT
+- github.com/golang-jwt/jwt/v5 ............... MIT
+- github.com/google/uuid ..................... BSD-3-Clause
+- github.com/gorilla/websocket ............... BSD-2-Clause
+- github.com/livekit/protocol ................ Apache-2.0
+- github.com/redis/go-redis/v9 ............... MIT
+- github.com/speps/go-hashids/v2 ............. MIT
+- github.com/spf13/viper ..................... MIT
+- go.uber.org/zap ........................... MIT
+- golang.org/x/crypto ........................ BSD-3-Clause
+- gorm.io/driver/mysql ....................... MIT
+- gorm.io/gorm .............................. MIT
+
+Notable transitive dependencies (non-exhaustive; the full set is resolved by Go
+modules and recorded in go.sum):
+- github.com/livekit/* (psrpc, mageutil) ..... Apache-2.0
+- github.com/pion/* (webrtc, ice, dtls, srtp, turn, stun, ...)  MIT
+- google.golang.org/grpc ..................... Apache-2.0
+- google.golang.org/protobuf ................. BSD-3-Clause
+- golang.org/x/* (net, sys, text, sync, time, arch, exp) ...... BSD-3-Clause
+- go.uber.org/atomic, go.uber.org/multierr ... MIT
+- gopkg.in/yaml.v3, gopkg.in/ini.v1 .......... MIT
+- modernc.org/* (sqlite, libc, mathutil, memory) ................ MIT / ISC
+- github.com/spf13/* (afero, cast, pflag) .... MIT
+
+NOTE: transitive dependency licenses should be verified with a license tool
+before distribution, e.g.:
+  go install github.com/google/go-licenses@latest
+  go-licenses report ./service
+
+================================================================================
+Web dependencies (web/package.json)
+================================================================================
+Runtime dependencies:
+- vue ....................................... MIT
+- vue-router ................................. MIT
+- pinia ..................................... MIT
+- axios ..................................... MIT
+- element-plus .............................. MIT
+- @element-plus/icons-vue ................... MIT
+- dayjs ..................................... MIT
+- nprogress ................................. MIT
+- livekit-client ............................ Apache-2.0
+
+Dev dependencies:
+- @vitejs/plugin-vue ......................... MIT
+- @vue/tsconfig ............................. MIT
+- typescript ................................ Apache-2.0
+- vite ...................................... MIT
+- vue-tsc ................................... MIT
+- @types/node ............................... MIT
+- @types/nprogress .......................... MIT
+- sass ...................................... MIT
+- unplugin-auto-import ....................... MIT
+- unplugin-vue-components .................... MIT

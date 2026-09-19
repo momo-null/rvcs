@@ -1,0 +1,16 @@
+port: 7880
+
+bind_addresses:
+  - "0.0.0.0"
+
+rtc:
+  # node_ip: <your-server-public-ip>  # optional; use_external_ip below auto-detects the public IP
+  use_external_ip: true
+  tcp_port: 7881
+  port_range_start: 50000
+  port_range_end: 60000
+  enable_loopback_candidate: false
+
+keys:
+  YOUR_LIVEKIT_API_KEY: YOUR_LIVEKIT_API_SECRET
+

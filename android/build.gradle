@@ -1,0 +1,20 @@
+// Minimal root build.gradle for Android Studio
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.1.0'       // 升级 AGP
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.25' // 升级 Kotlin
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
